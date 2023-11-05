@@ -52,9 +52,13 @@ const Dashboard = () => {
           </div>
         ) : (
           <div className="mt-4 flex flex-col items-center mx-auto w-full max-w-xl gap-4">
-            {spotify.playlists?.items.map((playlist) => (
-              <PlaylistCard key={playlist.id} playlist={playlist} setSelectedPlaylist={setSelectedPlaylist} />
-            ))}
+            {spotify.playlists?.items.length ? (
+              spotify.playlists?.items.map((playlist) => (
+                <PlaylistCard key={playlist.id} playlist={playlist} setSelectedPlaylist={setSelectedPlaylist} />
+              ))
+            ) : (
+              <span className="mt-20">You didn't have any playlist yet.</span>
+            )}
           </div>
         )}
       </main>

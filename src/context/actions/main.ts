@@ -49,11 +49,14 @@ export const useMainAction = () => {
         },
       });
 
-      // TODO: handle refresh token based on expires_in
-      // if (!resp.ok) {
-      //   await refreshAccessToken();
-      //   return;
-      // }
+      if (!resp.ok) {
+        const err = await resp.json();
+        if (err.error === 'unauthorized') {
+          await refreshAccessToken();
+          return;
+        }
+        throw new Error(err.message ?? 'Please try again later');
+      }
 
       const json: SuccessResponse<User> = await resp.json();
       mainDispatch({ type: 'SET_USER', payload: json.data });
@@ -66,5 +69,6 @@ export const useMainAction = () => {
 
   return {
     getUserInfo,
+    refreshAccessToken,
   };
 };
