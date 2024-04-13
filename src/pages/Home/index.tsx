@@ -8,7 +8,7 @@ const Home = () => {
   const tokens = getAccessTokens();
 
   const onLogin = () => {
-    if (tokens && tokens.accessToken.length) {
+    if (tokens?.accessToken.length) {
       navigate('/dashboard');
       return;
     }
@@ -23,7 +23,7 @@ const Home = () => {
           <h1 className="font-bold">Spotwave</h1>
         </Link>
         <Button variant="primary" classNames="btn btn-primary" onClick={onLogin}>
-          {tokens && tokens.accessToken.length ? 'Dashboard' : 'Login'}
+          {tokens?.accessToken?.length ? 'Dashboard' : 'Login'}
         </Button>
       </header>
       <main className="mt-56 px-[2%]">
