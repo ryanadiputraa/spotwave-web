@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 import { Button } from '../../components/Button';
+import { Footer } from '../../components/Footer';
 import { BASE_API_URL, getAccessTokens } from '../../utils';
 
 const Home = () => {
@@ -26,7 +27,7 @@ const Home = () => {
           {tokens?.accessToken?.length ? 'Dashboard' : 'Login'}
         </Button>
       </header>
-      <main className="mt-56 px-[2%]">
+      <main className="px-[2%] py-2 min-h-[87vh] flex flex-col justify-center">
         <section id="main" className="flex justify-center items-center flex-col">
           <h1 className="font-bold text-3xl sm:text-6xl sm:w-[60%] text-center">
             Download your Spotify playlist in just a few clicks!
@@ -39,6 +40,7 @@ const Home = () => {
           </Button>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };

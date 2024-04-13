@@ -26,9 +26,9 @@ export const AppBar = () => {
         <img className="w-10 rounded-full" src={profileImage} alt="spotwave-logo" />
         <div className="hidden sm:flex flex-col items-start justify-center">
           <span className="font-bold">{displayName}</span>
-          <span className="font-light text-sm italic underline cursor-pointer" onClick={logout}>
+          <button className="font-light text-sm italic underline cursor-pointer" onClick={logout}>
             logout
-          </span>
+          </button>
         </div>
       </div>
     </header>

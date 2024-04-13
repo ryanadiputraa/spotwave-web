@@ -8,6 +8,7 @@ import { PlaylistCard } from './components/PlaylistCard';
 import { PlaylistItem } from '../../types/spotify';
 import { Button } from '../../components/Button';
 import { TrackCard } from './components/TrackCard';
+import { Footer } from '../../components/Footer';
 
 const Dashboard = () => {
   const [selectedPlaylist, setSelectedPlaylist] = useState<PlaylistItem | null>(null);
@@ -29,7 +30,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-accent">
       <AppBar />
-      <main className="py-2 mt-8 px-[2%] sm:px-6">
+      <main className="py-2 px-[2%] sm:px-6 min-h-[87vh]">
         <h2 className="font-bold text-center text-2xl">
           {selectedPlaylist ? selectedPlaylist.name : 'Your Spotify Playlists'}
         </h2>
@@ -62,6 +63,7 @@ const Dashboard = () => {
           </div>
         )}
       </main>
+      <Footer />
     </div>
   );
 };
